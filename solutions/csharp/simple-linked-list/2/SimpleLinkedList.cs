@@ -1,0 +1,20 @@
+using System.Collections;
+
+public class SimpleLinkedList<T> : IEnumerable<T>
+{
+    private readonly Stack<T> _stack;
+
+    public SimpleLinkedList() => _stack = new Stack<T>();
+
+    public SimpleLinkedList(IEnumerable<T> values) => _stack = new Stack<T>(values);
+
+    public int Count => _stack.Count;
+
+    public void Push(T value) => _stack.Push(value);
+
+    public T Pop() => _stack.Pop();
+
+    public IEnumerator<T> GetEnumerator() => _stack.GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator() => _stack.GetEnumerator();
+}
